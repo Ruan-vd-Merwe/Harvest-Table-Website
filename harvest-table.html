@@ -1,0 +1,1119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Harvest Table — DoubleTree by Hilton Cape Town</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --forest:   #1B3A2D;
+    --forest2:  #254D3C;
+    --gold:     #A07830;
+    --sage:     #7A9E7E;
+    --sage-pale:#EAF0EA;
+    --cream:    #F7F3ED;
+    --linen:    #F0EAE0;
+    --charcoal: #2A2A2A;
+    --muted:    #6B6660;
+    --border:   #DDD5C8;
+    --white:    #FFFFFF;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--charcoal);
+    font-size: 16px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── NAV ────────────────────────────────────── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(247,243,237,0.94);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 48px;
+    height: 64px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+
+  .nav-brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--forest);
+    letter-spacing: 0.02em;
+    text-decoration: none;
+  }
+
+  .nav-links {
+    display: flex; gap: 36px; list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.04em;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--forest); }
+
+  .nav-pill {
+    background: var(--forest);
+    color: var(--white);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    padding: 9px 22px;
+    border-radius: 2px;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+
+  .nav-pill:hover { background: var(--forest2); }
+
+  /* ── HERO ───────────────────────────────────── */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 64px;
+  }
+
+  .hero-left {
+    background: var(--forest);
+    padding: 96px 72px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .hero-eyebrow {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    color: var(--sage);
+    text-transform: uppercase;
+    margin-bottom: 28px;
+  }
+
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(52px, 5vw, 74px);
+    font-weight: 400;
+    line-height: 1.06;
+    color: var(--white);
+    margin-bottom: 32px;
+  }
+
+  .hero-title em {
+    font-style: italic;
+    color: #C8A87A;
+  }
+
+  .hero-rule {
+    width: 48px; height: 1px;
+    background: var(--gold);
+    margin-bottom: 32px;
+  }
+
+  .hero-desc {
+    font-size: 16px;
+    line-height: 1.75;
+    color: #A8BFAC;
+    max-width: 420px;
+    margin-bottom: 48px;
+    font-weight: 300;
+  }
+
+  .hero-cta {
+    display: inline-flex; align-items: center; gap: 12px;
+    background: transparent;
+    border: 1px solid rgba(200,168,122,0.5);
+    color: #C8A87A;
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    padding: 14px 28px;
+    text-decoration: none;
+    border-radius: 2px;
+    transition: all 0.2s;
+    width: fit-content;
+  }
+
+  .hero-cta:hover {
+    background: rgba(200,168,122,0.08);
+    border-color: #C8A87A;
+  }
+
+  .hero-cta-arrow { font-size: 18px; }
+
+  .hero-right {
+    background: var(--linen);
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+  }
+
+  .hero-stat-grid {
+    padding: 64px 56px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--border);
+    align-content: center;
+  }
+
+  .hero-stat {
+    background: var(--linen);
+    padding: 32px 28px;
+  }
+
+  .stat-value {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 42px;
+    font-weight: 400;
+    color: var(--forest);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .stat-label {
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--muted);
+    letter-spacing: 0.03em;
+    line-height: 1.4;
+  }
+
+  .hero-visual {
+    background: var(--forest);
+    position: relative;
+    overflow: hidden;
+    display: flex; align-items: flex-end;
+    padding: 40px 56px;
+  }
+
+  .hero-visual-bg {
+    position: absolute; inset: 0;
+    background: 
+      radial-gradient(ellipse at 30% 60%, rgba(122,158,126,0.25) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 20%, rgba(200,168,122,0.12) 0%, transparent 50%);
+  }
+
+  .hero-visual-lines {
+    position: absolute; inset: 0;
+    overflow: hidden;
+  }
+
+  .hero-visual-lines::before {
+    content: '';
+    position: absolute;
+    top: -40px; left: 50%;
+    width: 1px; height: 200%;
+    background: rgba(122,158,126,0.15);
+    transform: rotate(15deg);
+  }
+
+  .hero-quote {
+    position: relative; z-index: 1;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-style: italic;
+    font-weight: 300;
+    color: rgba(255,255,255,0.75);
+    line-height: 1.5;
+    border-left: 2px solid var(--gold);
+    padding-left: 20px;
+  }
+
+  /* ── SECTION BASE ───────────────────────────── */
+  section { padding: 96px 0; }
+  .container { max-width: 1140px; margin: 0 auto; padding: 0 48px; }
+
+  .section-eyebrow {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    color: var(--sage);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 4vw, 52px);
+    font-weight: 400;
+    color: var(--forest);
+    line-height: 1.1;
+    margin-bottom: 20px;
+  }
+
+  .section-title em { font-style: italic; }
+
+  .section-rule {
+    width: 40px; height: 1px;
+    background: var(--gold);
+    margin-bottom: 24px;
+  }
+
+  .section-body {
+    font-size: 16px;
+    font-weight: 300;
+    color: var(--muted);
+    line-height: 1.8;
+    max-width: 580px;
+  }
+
+  /* ── CONCEPT ────────────────────────────────── */
+  .concept { background: var(--white); }
+
+  .concept-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 96px;
+    align-items: center;
+  }
+
+  .concept-intro { padding-right: 32px; }
+
+  .concept-points {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .concept-point {
+    display: grid;
+    grid-template-columns: 40px 1fr;
+    gap: 20px;
+    padding: 24px 0;
+    border-bottom: 1px solid var(--border);
+    align-items: start;
+  }
+
+  .concept-point:first-child { border-top: 1px solid var(--border); }
+
+  .point-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px;
+    font-weight: 300;
+    color: var(--border);
+    line-height: 1;
+    padding-top: 2px;
+  }
+
+  .point-title {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--forest);
+    margin-bottom: 6px;
+    letter-spacing: 0.01em;
+  }
+
+  .point-desc {
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--muted);
+    line-height: 1.65;
+  }
+
+  /* ── EXPERIENCE ─────────────────────────────── */
+  .experience { background: var(--forest); }
+  .experience .section-title { color: var(--white); }
+  .experience .section-body { color: #A8BFAC; }
+  .experience .section-eyebrow { color: var(--sage); }
+
+  .experience-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: rgba(255,255,255,0.1);
+    margin-top: 56px;
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .exp-card {
+    background: var(--forest2);
+    padding: 40px 36px;
+    position: relative;
+  }
+
+  .exp-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--gold);
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+
+  .exp-card:hover::before { opacity: 1; }
+
+  .exp-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--sage);
+    letter-spacing: 0.12em;
+    margin-bottom: 20px;
+  }
+
+  .exp-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px;
+    font-weight: 400;
+    color: var(--white);
+    line-height: 1.2;
+    margin-bottom: 16px;
+  }
+
+  .exp-desc {
+    font-size: 14px;
+    font-weight: 300;
+    color: #A8BFAC;
+    line-height: 1.7;
+  }
+
+  /* ── WHAT WE GROW ───────────────────────────── */
+  .produce { background: var(--linen); }
+
+  .produce-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin-top: 56px;
+  }
+
+  .produce-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    padding: 32px 28px;
+  }
+
+  .produce-category {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    color: var(--sage);
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  .produce-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    font-weight: 400;
+    color: var(--forest);
+    margin-bottom: 12px;
+    line-height: 1.2;
+  }
+
+  .produce-desc {
+    font-size: 13px;
+    font-weight: 300;
+    color: var(--muted);
+    line-height: 1.65;
+    margin-bottom: 20px;
+  }
+
+  .produce-detail {
+    font-size: 11px;
+    font-weight: 400;
+    color: var(--sage);
+    font-style: italic;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+    line-height: 1.5;
+  }
+
+  /* ── MODEL ──────────────────────────────────── */
+  .model { background: var(--white); }
+
+  .model-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--border);
+    margin-top: 56px;
+    border: 1px solid var(--border);
+  }
+
+  .model-card {
+    background: var(--white);
+    padding: 48px 44px;
+  }
+
+  .model-card.featured {
+    background: var(--forest);
+  }
+
+  .model-tag {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    margin-bottom: 24px;
+    border-radius: 1px;
+  }
+
+  .model-card.featured .model-tag {
+    border-color: rgba(200,168,122,0.4);
+    color: #C8A87A;
+  }
+
+  .model-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 30px;
+    font-weight: 400;
+    color: var(--forest);
+    line-height: 1.2;
+    margin-bottom: 16px;
+  }
+
+  .model-card.featured .model-title { color: var(--white); }
+
+  .model-desc {
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--muted);
+    line-height: 1.75;
+    margin-bottom: 28px;
+  }
+
+  .model-card.featured .model-desc { color: #A8BFAC; }
+
+  .model-items {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .model-items li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--charcoal);
+    line-height: 1.5;
+  }
+
+  .model-card.featured .model-items li { color: #C8D8C8; }
+
+  .model-items li::before {
+    content: '';
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: var(--sage);
+    flex-shrink: 0;
+    margin-top: 8px;
+  }
+
+  /* ── NEXT STEPS ─────────────────────────────── */
+  .nextsteps { background: var(--cream); }
+
+  .steps-list {
+    counter-reset: steps;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-top: 56px;
+    max-width: 720px;
+  }
+
+  .step {
+    display: grid;
+    grid-template-columns: 56px 1fr;
+    gap: 28px;
+    padding: 32px 0;
+    border-bottom: 1px solid var(--border);
+    align-items: start;
+  }
+
+  .step:first-child { border-top: 1px solid var(--border); }
+
+  .step-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 42px;
+    font-weight: 300;
+    color: var(--border);
+    line-height: 1;
+  }
+
+  .step-body {}
+
+  .step-title {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--forest);
+    margin-bottom: 8px;
+  }
+
+  .step-desc {
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+
+  /* ── CONTACT ────────────────────────────────── */
+  .contact {
+    background: var(--forest);
+    padding: 96px 0;
+  }
+
+  .contact-inner {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 48px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 96px;
+    align-items: center;
+  }
+
+  .contact-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(40px, 4vw, 60px);
+    font-weight: 400;
+    color: var(--white);
+    line-height: 1.1;
+    margin-bottom: 20px;
+  }
+
+  .contact-title em {
+    font-style: italic;
+    color: #C8A87A;
+  }
+
+  .contact-sub {
+    font-size: 15px;
+    font-weight: 300;
+    color: #A8BFAC;
+    line-height: 1.75;
+    margin-bottom: 40px;
+  }
+
+  .contact-detail {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .contact-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .contact-label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    color: var(--sage);
+    text-transform: uppercase;
+    width: 72px;
+    flex-shrink: 0;
+  }
+
+  .contact-value {
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--white);
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    padding: 14px 18px;
+    border-radius: 0;
+    outline: none;
+    transition: border-color 0.2s;
+    width: 100%;
+  }
+
+  .contact-form input::placeholder,
+  .contact-form textarea::placeholder {
+    color: rgba(255,255,255,0.3);
+  }
+
+  .contact-form input:focus,
+  .contact-form textarea:focus {
+    border-color: rgba(200,168,122,0.5);
+  }
+
+  .contact-form textarea { height: 120px; resize: none; }
+
+  .contact-submit {
+    background: var(--gold);
+    color: var(--white);
+    border: none;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    padding: 15px 32px;
+    cursor: pointer;
+    border-radius: 0;
+    transition: background 0.2s;
+    align-self: flex-start;
+  }
+
+  .contact-submit:hover { background: #8A6420; }
+
+  /* ── FOOTER ─────────────────────────────────── */
+  footer {
+    background: #111E18;
+    padding: 40px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .footer-brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px;
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 0.05em;
+  }
+
+  .footer-note {
+    font-size: 12px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.3);
+  }
+
+  /* ── DIVIDER BAND ───────────────────────────── */
+  .band {
+    background: var(--linen);
+    padding: 56px 48px;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .band-inner {
+    max-width: 1140px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+
+  .band-item {
+    background: var(--linen);
+    padding: 32px 36px;
+  }
+
+  .band-value {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 38px;
+    font-weight: 400;
+    color: var(--forest);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .band-label {
+    font-size: 13px;
+    font-weight: 300;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+
+  /* ── SCROLL FADE ────────────────────────────── */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .fade-in.visible {
+    opacity: 1;
+    transform: none;
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-brand">Harvest Table</a>
+  <ul class="nav-links">
+    <li><a href="#concept">The Concept</a></li>
+    <li><a href="#produce">What We Grow</a></li>
+    <li><a href="#model">Partnership</a></li>
+    <li><a href="#nextsteps">Next Steps</a></li>
+  </ul>
+  <a href="#contact" class="nav-pill">Get in Touch</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <p class="hero-eyebrow">A proposal for DoubleTree by Hilton Cape Town</p>
+    <h1 class="hero-title">A living<br>garden<br><em>inside your hotel.</em></h1>
+    <div class="hero-rule"></div>
+    <p class="hero-desc">Harvest Table proposes transforming selected rooftop, courtyard and corridor spaces at DoubleTree Upper Eastside into a guest-facing urban farm — growing flowers, strawberries, microgreens and herbs on-site, and turning them into experiences guests remember.</p>
+    <a href="#concept" class="hero-cta">
+      Explore the proposal
+      <span class="hero-cta-arrow">&#8594;</span>
+    </a>
+  </div>
+
+  <div class="hero-right">
+    <div class="hero-stat-grid">
+      <div class="hero-stat">
+        <div class="stat-value">8–12</div>
+        <div class="stat-label">Week pilot to validate yield, guest response and operations</div>
+      </div>
+      <div class="hero-stat">
+        <div class="stat-value">5</div>
+        <div class="stat-label">Guest-facing zones from arrival to harvest moment</div>
+      </div>
+      <div class="hero-stat">
+        <div class="stat-value">Zero</div>
+        <div class="stat-label">Heavy infrastructure — lightweight modular systems throughout</div>
+      </div>
+      <div class="hero-stat">
+        <div class="stat-value">Local</div>
+        <div class="stat-label">Produce on the plate, in the room, and in the story you tell</div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-visual-bg"></div>
+      <div class="hero-visual-lines"></div>
+      <blockquote class="hero-quote">"A place where guests can sit among flowers, pick a strawberry, and taste something grown six metres away."</blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- METRICS BAND -->
+<div class="band">
+  <div class="band-inner">
+    <div class="band-item fade-in">
+      <div class="band-value">Microgreens</div>
+      <div class="band-label">Harvested to order. Delivered within 24 hours. On the plate the same day.</div>
+    </div>
+    <div class="band-item fade-in" style="transition-delay:0.1s">
+      <div class="band-value">Flowers</div>
+      <div class="band-label">Grown on-site. Placed in rooms, on pillows, on tables — a living detail guests photograph.</div>
+    </div>
+    <div class="band-item fade-in" style="transition-delay:0.2s">
+      <div class="band-value">Strawberries</div>
+      <div class="band-label">Non-pesticide. Raised planters. A moment guests can pick and taste themselves.</div>
+    </div>
+  </div>
+</div>
+
+<!-- CONCEPT -->
+<section class="concept" id="concept">
+  <div class="container">
+    <div class="concept-grid">
+      <div class="concept-intro fade-in">
+        <p class="section-eyebrow">The Concept</p>
+        <h2 class="section-title">Not a garden.<br><em>A guest journey.</em></h2>
+        <div class="section-rule"></div>
+        <p class="section-body">DoubleTree already has the architectural ingredients — roof decks, courtyards, tiled corridors and planted pockets. Harvest Table can convert these into a premium guest experience while producing microgreens, herbs, strawberries and edible flowers that move directly into the hotel's kitchen and rooms.</p>
+        <br>
+        <p class="section-body">This is not an industrial operation. It is a calm, beautiful, productive space that gives the hotel a genuine local story — and gives guests something to talk about when they leave.</p>
+      </div>
+      <div class="concept-points fade-in" style="transition-delay:0.15s">
+        <div class="concept-point">
+          <div class="point-num">01</div>
+          <div>
+            <div class="point-title">Arrival threshold</div>
+            <div class="point-desc">Guests move from the hotel lobby into a planted transition space — a green threshold rather than a dead corridor.</div>
+          </div>
+        </div>
+        <div class="concept-point">
+          <div class="point-num">02</div>
+          <div>
+            <div class="point-title">The garden tunnel</div>
+            <div class="point-desc">A lightweight vertical garden tunnel with warm lighting, herbs, flowers and hydroponic columns. The tunnel tells the Harvest Table story without feeling like a farm shed.</div>
+          </div>
+        </div>
+        <div class="concept-point">
+          <div class="point-num">03</div>
+          <div>
+            <div class="point-title">The strawberry moment</div>
+            <div class="point-desc">A small raised strawberry section lets guests pick one or two non-pesticide berries during a hosted experience, family stay or conference break.</div>
+          </div>
+        </div>
+        <div class="concept-point">
+          <div class="point-num">04</div>
+          <div>
+            <div class="point-title">Sit in the flower garden</div>
+            <div class="point-desc">Guests sit among flowers and edible planting — a quiet coffee corner, a pre-dinner space, a photo moment, or a small chef-hosted tasting.</div>
+          </div>
+        </div>
+        <div class="concept-point">
+          <div class="point-num">05</div>
+          <div>
+            <div class="point-title">Eat the story</div>
+            <div class="point-desc">Microgreens, herbs, edible flowers and berries appear on breakfast, cocktails, desserts and conference platters — giving the hotel a local-produce narrative with every plate.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE CARDS -->
+<section class="experience" id="experience">
+  <div class="container">
+    <p class="section-eyebrow">The Experience</p>
+    <h2 class="section-title" style="color:#fff">What guests<br><em>will remember.</em></h2>
+    <div class="section-rule"></div>
+    <p class="section-body">Each touchpoint is designed for a specific moment in the guest's stay — and each one is a story worth sharing.</p>
+
+    <div class="experience-cards fade-in">
+      <div class="exp-card">
+        <div class="exp-num">KITCHEN</div>
+        <div class="exp-title">Farm to plate</div>
+        <div class="exp-desc">Microgreens, edible flowers and fresh herbs grown on-site, harvested to order and delivered to your kitchen the same morning. No cold chain. No imported produce. An honest local story on every plate.</div>
+      </div>
+      <div class="exp-card">
+        <div class="exp-num">ROOMS</div>
+        <div class="exp-title">The small gestures</div>
+        <div class="exp-desc">A single fresh flower on a pillow. A small punnet of strawberries at arrival. A living herb pot in a suite. The kind of detail that costs very little and that guests remember for a long time.</div>
+      </div>
+      <div class="exp-card">
+        <div class="exp-num">ACTIVATIONS</div>
+        <div class="exp-title">Moments to photograph</div>
+        <div class="exp-desc">Strawberry-picking sessions, microgreen tastings, chef garden tours and conference break experiences. Moments that generate genuine social media content — because they are genuinely worth sharing.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT WE GROW -->
+<section class="produce" id="produce">
+  <div class="container">
+    <p class="section-eyebrow">What We Grow</p>
+    <h2 class="section-title">Four crops.<br><em>One coherent story.</em></h2>
+    <div class="section-rule"></div>
+    <p class="section-body">Each crop is chosen for its visual quality, culinary use, and ability to move quickly from garden to room or plate.</p>
+
+    <div class="produce-grid fade-in">
+      <div class="produce-card">
+        <div class="produce-category">Cut Flowers</div>
+        <div class="produce-title">Flowers &amp; Botanicals</div>
+        <div class="produce-desc">Grown on-site from seasonal Cape varieties. Used in rooms, at reception, on dining tables, and as pillow gifts. Eliminates delivery delays and gives the hotel a visible growing story.</div>
+        <div class="produce-detail">Room amenities &middot; Turndown gifting &middot; F&B garnish &middot; Conference tables</div>
+      </div>
+      <div class="produce-card">
+        <div class="produce-category">Specialty Berry</div>
+        <div class="produce-title">Strawberries</div>
+        <div class="produce-desc">Non-pesticide, raised planters. Small batches of exceptional quality. Used for guest gifting, breakfast service, desserts and the signature pick-your-own activation experience.</div>
+        <div class="produce-detail">Guest gifting &middot; Breakfast &middot; Dessert &middot; Pick-your-own activation</div>
+      </div>
+      <div class="produce-card">
+        <div class="produce-category">Specialty Greens</div>
+        <div class="produce-title">Microgreens</div>
+        <div class="produce-desc">Harvested within 24 hours of delivery. Sunflower, pea shoots, radish, amaranth and more — chosen by the chef based on the week's menu. The highest-value crop per square metre, and visually striking on the plate.</div>
+        <div class="produce-detail">Chef use only &middot; Harvested to order &middot; 24-hour delivery</div>
+      </div>
+      <div class="produce-card">
+        <div class="produce-category">Living Herbs</div>
+        <div class="produce-title">Herbs &amp; Leafy Greens</div>
+        <div class="produce-desc">Fresh-cut and living herb pots available weekly. Basil, thyme, rosemary, mint, lemon verbena, edible flowers. Can be placed in suites as a guest amenity or supplied to the kitchen on a standing order.</div>
+        <div class="produce-detail">Kitchen standing order &middot; Suite amenity &middot; Event garnish</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PARTNERSHIP MODEL -->
+<section class="model" id="model">
+  <div class="container">
+    <p class="section-eyebrow">The Partnership</p>
+    <h2 class="section-title">Three ways<br><em>to work together.</em></h2>
+    <div class="section-rule"></div>
+    <p class="section-body">We propose starting with the simplest model that lets both parties learn before committing to anything larger.</p>
+
+    <div class="model-grid fade-in">
+      <div class="model-card">
+        <span class="model-tag">Starter</span>
+        <div class="model-title">Produce-share model</div>
+        <div class="model-desc">Harvest Table grows and sells microgreens, herbs, berries and edible flowers to the hotel at agreed pricing. The hotel receives a garden amenity and fresh supply, with no service fee.</div>
+        <ul class="model-items">
+          <li>Lowest risk entry point for the hotel</li>
+          <li>No monthly commitment required</li>
+          <li>Volume and crop selection agreed weekly</li>
+          <li>Hotel pays per delivery at set price per tray or bunch</li>
+        </ul>
+      </div>
+      <div class="model-card">
+        <span class="model-tag">Amenity</span>
+        <div class="model-title">Garden as a service</div>
+        <div class="model-desc">DoubleTree pays a monthly service fee for the garden, its maintenance and guest-ready presentation. Produce up to a monthly allowance is included. Best if the hotel values the amenity and brand story.</div>
+        <ul class="model-items">
+          <li>Predictable monthly cost for the hotel</li>
+          <li>Harvest Table manages all planting and upkeep</li>
+          <li>Produce allowance included in fee</li>
+          <li>Guest-ready presentation at all times</li>
+        </ul>
+      </div>
+      <div class="model-card featured">
+        <span class="model-tag">Recommended</span>
+        <div class="model-title">Hybrid pilot model</div>
+        <div class="model-desc">A smaller monthly retainer covers maintenance, while produce sales and guest activations create upside for both parties. We recommend this as the starting model for the 8–12 week pilot.</div>
+        <ul class="model-items">
+          <li>Hotel approves one guest-facing zone and one propagation area</li>
+          <li>Harvest Table earns from produce sales and a modest service fee</li>
+          <li>Hotel receives the garden, the guest experience and the story</li>
+          <li>After 8–12 weeks, both parties review and decide on expansion</li>
+        </ul>
+      </div>
+      <div class="model-card" style="grid-column: span 1;">
+        <span class="model-tag">Optional Add-on</span>
+        <div class="model-title">Guest activations</div>
+        <div class="model-desc">Strawberry-picking moments, microgreen tastings, chef garden tours and conference break experiences. Priced and operated separately — can be added to any of the above models.</div>
+        <ul class="model-items">
+          <li>Adds experiential revenue and marketing content</li>
+          <li>Particularly strong for conference and family segments</li>
+          <li>Can be scheduled around hotel programming</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEXT STEPS -->
+<section class="nextsteps" id="nextsteps">
+  <div class="container">
+    <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 96px; align-items: start;">
+      <div>
+        <p class="section-eyebrow">Next Steps</p>
+        <h2 class="section-title">How we<br><em>get started.</em></h2>
+        <div class="section-rule"></div>
+        <p class="section-body">We propose a focused five-step process to move from this proposal to a live pilot — with every structural and operational assumption confirmed before any installation begins.</p>
+      </div>
+      <div class="steps-list fade-in">
+        <div class="step">
+          <div class="step-num">01</div>
+          <div class="step-body">
+            <div class="step-title">Walk the spaces together</div>
+            <div class="step-desc">Identify the strongest guest-facing route through the rooftop, courtyard and corridor areas with Francois and the hotel team.</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">02</div>
+          <div class="step-body">
+            <div class="step-title">Confirm structural information</div>
+            <div class="step-desc">Request as-built drawings or roof loading data to validate assumptions about structural capacity, waterproofing and drainage before any installation.</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">03</div>
+          <div class="step-body">
+            <div class="step-title">Mark the pilot zones</div>
+            <div class="step-desc">Designate the flower and strawberry guest garden, hydroponic herb rails, microgreen propagation area and compost workflow location.</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">04</div>
+          <div class="step-body">
+            <div class="step-title">Price the 8–12 week pilot</div>
+            <div class="step-desc">Agree on the partnership model, installation scope, produce pricing and activation schedule for the initial pilot period.</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">05</div>
+          <div class="step-body">
+            <div class="step-title">Measure and expand</div>
+            <div class="step-desc">At the end of the pilot, review guest response, produce yield, menu usage and operational effort together — then decide what to grow next.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<div class="contact" id="contact">
+  <div class="contact-inner">
+    <div>
+      <p class="section-eyebrow" style="color:var(--sage)">Start the conversation</p>
+      <h2 class="contact-title">Ready to<br><em>walk the spaces?</em></h2>
+      <p class="contact-sub">We would be glad to arrange a site walk with Francois and the DoubleTree team at a time that suits. The full proposal document and financial model are available on request.</p>
+      <div class="contact-detail">
+        <div class="contact-row">
+          <span class="contact-label">Name</span>
+          <span class="contact-value">Ruan vd Merwe</span>
+        </div>
+        <div class="contact-row">
+          <span class="contact-label">Email</span>
+          <span class="contact-value">Ruanvandermerwe343@gmail.com</span>
+        </div>
+        <div class="contact-row">
+          <span class="contact-label">Phone</span>
+          <span class="contact-value">+27 74 602 0084</span>
+        </div>
+        <div class="contact-row">
+          <span class="contact-label">Based</span>
+          <span class="contact-value">Cape Town, South Africa</span>
+        </div>
+      </div>
+    </div>
+    <div>
+      <form class="contact-form" onsubmit="return false;">
+        <input type="text" placeholder="Your name">
+        <input type="email" placeholder="Email address">
+        <input type="text" placeholder="Your role at DoubleTree">
+        <textarea placeholder="Your message or question"></textarea>
+        <button type="submit" class="contact-submit">Send message</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <span class="footer-brand">Harvest Table &times; DoubleTree by Hilton Cape Town</span>
+  <span class="footer-note">Proposal prepared 2025. Confidential.</span>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
